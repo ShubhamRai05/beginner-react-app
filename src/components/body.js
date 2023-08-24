@@ -25,8 +25,10 @@ const BodyComponent = function () {
             }>Decrement Number</button> */}
 
             <button onClick={(e) => {
+                console.log("am called")
                 let data = filterData(restaurant, searchText)
                 setRestaurant(data)
+
             }} >Search</button>
 
             <div className="restaurant-list">
