@@ -1,0 +1,69 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body
+{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.header
+{
+    height: 5rem;
+    background-color: rgb(122, 134, 144);
+    color: rgb(232, 206, 171);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+.logo
+{
+   margin: 10px; 
+}
+.nav-list
+{
+    display: flex;
+    margin: 10px;
+    list-style: none;
+
+}
+.nav-list li 
+{
+    padding: 0 20px;
+}
+.cards 
+{
+    margin-top: 10px;
+    width: 345px;
+    border: 1px solid rgb(102, 85, 85);
+    padding: 15px;
+    font-size: 1rem;
+    color: rgba(156, 167, 176, 0.881);
+    text-align: center;
+    margin: 1rem;
+}
+
+.cards img
+{
+    width: 100%;
+}
+.restaurant-list
+{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #121212;
+    
+
+}
+.footer
+{
+    height:100px;
+    background-color: rgb(122, 134, 144);
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+     bottom: 0;
+ }
