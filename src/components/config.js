@@ -2296,7 +2296,9 @@ export const restaurantCardData = [
     }
 ]
 
-export function filterData(restaurant, searchText) {
-    let data = restaurant.filter((restaurant) => restaurant.info.name.includes(searchText))
+export function filterData(restaurant, searchText ) {
+     
+    let data = restaurant.filter((restaurant) => restaurant.info.name.includes(searchText) )
     return data;
+
 }

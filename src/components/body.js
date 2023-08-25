@@ -1,32 +1,36 @@
 import { restaurantCardData } from "./config";
 import RestaurantCard from "./RestaurantCard";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { filterData } from "./config";
 
 const BodyComponent = function () {
     const [searchText, setSearchText] = useState("")
     let [restaurant, setRestaurant] = useState(restaurantCardData)
+    let [tracker, setTracker] = useState(0)
     // let [incrementNumber, setIncrementNumber] = useState(10)
+
+    useEffect(() => {
+        console.log("i am useEffect`");
+        getRestaurant()
+    }, [searchText])
+
+   async function getRestaurant(){
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1122286&lng=72.8873623&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+        const response = await data.json()
+        console.log(response)
+    }
+    console.log("render");
     return (
         <>
             <input type="text" className="search-input" placeholder="Search here" value={searchText} onChange={(e) => {
                 setSearchText(e.target.value)
             }} />
-            {/* just for practice */}
-            {/* <h1>{incrementNumber}</h1>
-            <button onClick={() => {
-                setIncrementNumber(incrementNumber++)
 
-            }}>Increment number</button>
-            <button onClick={
-                ()=>{
-                    setIncrementNumber(incrementNumber--)
-                }
-            }>Decrement Number</button> */}
 
             <button onClick={(e) => {
                 console.log("am called")
                 let data = filterData(restaurant, searchText)
+
                 setRestaurant(data)
 
             }} >Search</button>
