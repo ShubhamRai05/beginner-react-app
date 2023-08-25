@@ -11,13 +11,16 @@ const BodyComponent = function () {
 
     useEffect(() => {
         console.log("i am useEffect`");
+        // api call
         getRestaurant()
-    }, [searchText])
+    }, [])
 
    async function getRestaurant(){
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1122286&lng=72.8873623&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
         const response = await data.json()
-        console.log(response)
+        // console.log(response?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info)
+        setRestaurant(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
+        console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
     }
     console.log("render");
     return (
@@ -37,7 +40,7 @@ const BodyComponent = function () {
 
             <div className="restaurant-list">
                 {restaurant.map((restro) => {
-                    return <RestaurantCard {...restro.info} key={restro.info.id} />
+                    return <RestaurantCard {...restro.info} key={restro?.info?.id} />
                 })}
             </div></>
 
