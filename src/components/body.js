@@ -2,12 +2,11 @@ import { restaurantCardData } from "./config";
 import RestaurantCard from "./RestaurantCard";
 import { useState, useEffect } from "react";
 import { filterData } from "./config";
+import ShimmerComponent from "./shimmer";
 
 const BodyComponent = function () {
     const [searchText, setSearchText] = useState("")
-    let [restaurant, setRestaurant] = useState(restaurantCardData)
-    let [tracker, setTracker] = useState(0)
-    // let [incrementNumber, setIncrementNumber] = useState(10)
+    let [restaurant, setRestaurant] = useState([])
 
     useEffect(() => {
         console.log("i am useEffect`");
@@ -19,11 +18,12 @@ const BodyComponent = function () {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1122286&lng=72.8873623&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
         const response = await data.json()
         // console.log(response?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info)
-        setRestaurant(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
+        let restaurantData = response?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+        setRestaurant(restaurantData)
         console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
     }
     console.log("render");
-    return (
+    return (restaurant.length ===0)?<ShimmerComponent/> : (
         <>
             <input type="text" className="search-input" placeholder="Search here" value={searchText} onChange={(e) => {
                 setSearchText(e.target.value)
