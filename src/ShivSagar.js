@@ -3,7 +3,11 @@ import ReactDOM from "react-dom/client";
 import HeaderComponent from "./components/header";
 import BodyComponent from "./components/body";
 import FooterComponent from "./components/footer";
-
+ 
+if (module.hot) {
+    module.hot.accept();
+}
+  
 const AppLayout = function () {
     return (
         <>

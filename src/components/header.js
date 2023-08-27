@@ -12,7 +12,7 @@ const HeaderComponent = function () {
                 <li>Cart</li>
             </ul>
         </div>
-
+ 
 
     )
 }

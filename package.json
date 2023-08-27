@@ -4,12 +4,12 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start" : "parcel index.html" ,
-    "build" : "parcel build index.html"
+    "start": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "ISC", 
   "dependencies": {
     "parcel": "^2.9.3",
     "react": "^18.2.0",

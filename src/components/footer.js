@@ -8,4 +8,4 @@ const FooterComponent = function () {
 }
 
 
-export default FooterComponent
+export default FooterComponent 

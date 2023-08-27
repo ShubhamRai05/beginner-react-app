@@ -1,5 +1,5 @@
-import { restaurantCardData } from "./config";
-import RestaurantCard from "./RestaurantCard";
+import { restaurantCardData } from "./config";  //because we are using api of swiggy
+import RestaurantCard from "./restroCard";
 import { useState, useEffect } from "react";
 import { filterData } from "./config";
 import ShimmerComponent from "./shimmer";
@@ -9,7 +9,7 @@ const BodyComponent = function () {
     let [restaurant, setRestaurant] = useState([])
 
     useEffect(() => {
-        console.log("i am useEffect`");
+        console.log("i am useEffect`"); 
         // api call
         getRestaurant()
     }, [])
@@ -22,8 +22,7 @@ const BodyComponent = function () {
         setRestaurant(restaurantData)
         console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
     }
-    console.log("render");
-    return (restaurant.length ===0)?<ShimmerComponent/> : (
+     return (restaurant.length ===0)?<ShimmerComponent/> : (
         <>
             <input type="text" className="search-input" placeholder="Search here" value={searchText} onChange={(e) => {
                 setSearchText(e.target.value)
