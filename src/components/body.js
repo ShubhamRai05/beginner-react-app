@@ -32,29 +32,31 @@ const BodyComponent = function () {
         console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
     }
 
-    // dont render if all restro doesnt exist
-    if (!allRestaurants) return <h1>It is still rendering vro</h1>
-    // it is also known as early return
+    if (!allRestaurants) {
+        return <h1>Still rendering</h1>
+    }
 
-
-    
+    const renderinResults = ()=>{
+        if(filteredRestaurant.length ===0){
+            return <h1>No search Results</h1>
+        }
+    }
     // rendering component
     return (allRestaurants.length === 0) ? <ShimmerComponent /> : (
         <>
-        
             <input type="text" className="search-input" placeholder="Search here" value={searchText} onChange={(e) => {
                 setSearchText(e.target.value)
+
             }} />
-
-
             <button onClick={() => {
-                 
+
                 console.log("am called1")
                 let data = filterData(allRestaurants, searchText)
 
                 setfilteredRestaurant(data)
-              
+
             }} >Search</button>
+            {renderinResults()}
 
             <div className="restaurant-list">
                 {filteredRestaurant.map((restro) => {
