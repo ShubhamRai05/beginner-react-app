@@ -136,7 +136,7 @@ export const restaurantCardData = [
             "cloudinaryImageId": "e33e1d3ba7d6b2bb0d45e1001b731fcf",
             "locality": "Western House, Sakinaka",
             "areaName": "Andheri East",
-            "costForTwo": "₹350 for two",
+            "costForTwo": "₹350 0for two",
             "cuisines": [
                 "Burgers",
                 "American"
