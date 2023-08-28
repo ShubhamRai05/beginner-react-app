@@ -38,7 +38,7 @@ const BodyComponent = function () {
 
     const renderinResults = ()=>{
         if(filteredRestaurant.length ===0){
-            return <h1>No search Results</h1>
+            return alert("No search Result")
         }
     }
     // rendering component
@@ -54,9 +54,10 @@ const BodyComponent = function () {
                 let data = filterData(allRestaurants, searchText)
 
                 setfilteredRestaurant(data)
+                renderinResults
 
-            }} >Search</button>
-            {renderinResults()}
+
+            }}>Search</button>
 
             <div className="restaurant-list">
                 {filteredRestaurant.map((restro) => {
