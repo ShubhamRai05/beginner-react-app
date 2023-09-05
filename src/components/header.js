@@ -1,18 +1,19 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
+import logo from "./assets/img/logo.jpg"
+
+const Title = () => {
+  // const [title, setTitle] = useState("FoodMania")
 
 
-const title = () => {
-  const [title, setTitle] = useState("FOODMANIA")
-  return(   
-    <>      
-      <h1 className="logo">{title}</h1>
-     
+  return (
+    <>
+      <img src={logo} className="logo"/>
     </>
- 
-  ) 
+
+  )
 
 }
- 
+
 
 const HeaderComponent = function () {
 
@@ -21,7 +22,7 @@ const HeaderComponent = function () {
 
   return (
     <div className="header">
-      {title()}
+      <Title />
       <ul className="nav-list">
         <li>Home</li>
         <li>About Us</li>

@@ -25,11 +25,14 @@ const BodyComponent = function () {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1122286&lng=72.8873623&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
         const response = await data.json()
         // console.log(response?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info)
+        if(!response?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle){
+            return <h1>Please refresh the page</h1>
+        }
         let restaurantData = response?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         setAllRestaurant(restaurantData)
         setfilteredRestaurant(restaurantData)
 
-        console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
+        // console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
     }
 
     if (!allRestaurants) {
@@ -41,6 +44,8 @@ const BodyComponent = function () {
             return alert("No search Result")
         }
     }
+
+    console.log("render")
     // rendering component
     return (allRestaurants.length === 0) ? <ShimmerComponent /> : (
         <>
@@ -68,4 +73,4 @@ const BodyComponent = function () {
     )
 }
 
-export default BodyComponent
+export default BodyComponent  
