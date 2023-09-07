@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import logo from "./assets/img/logo.jpg"
-
+import { Link } from "react-router-dom"
 const Title = () => {
   // const [title, setTitle] = useState("FoodMania")
 
@@ -24,9 +24,14 @@ const HeaderComponent = function () {
     <div className="header">
       <Title />
       <ul className="nav-list">
-        <li>Home</li>
-        <li>About Us</li>
-        <li>Contact Us</li>
+      <Link to="/">
+      <li>Home</li>
+      </Link>
+      <Link to="/about">
+      <li>About Us</li>
+      </Link>
+
+        <Link to="/contact">Contact Us</Link>
         <li>Cart</li>
       </ul>
       {authentication ? <button onClick={() => {

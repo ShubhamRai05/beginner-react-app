@@ -7,6 +7,7 @@ import About from "../src/components/about"
 import Contact from ".//components/contact"
 import Error from "./components/error";
 import {RouterProvider , createBrowserRouter} from "react-router-dom"
+import { Outlet } from "react-router-dom"; //helps in managing the routes by having constant header and footer it accepts childrens
    
 
 
@@ -14,7 +15,7 @@ const AppLayout = function () {
     return (
         <>
             <HeaderComponent />
-            <BodyComponent />
+            <Outlet />
             <FooterComponent />
         </>
 
@@ -24,24 +25,26 @@ const AppLayout = function () {
 
 const appRouter = createBrowserRouter([
     {
-        path:"//" ,
+        path:"/" ,
         element:<AppLayout/>,
-        errorElement:<Error/>
-    },
-    {
-        path:"//about",
-        element:<About/>
+        errorElement:<Error/>,
+        children:[
+            {
+                path:"/",
+                element:<BodyComponent/>
+            },
+            {
+                path:"/about",
+                element:<About/>
+            }
+            ,
+            {
+                path:"/contact",
+                element:<Contact/>
+            }
+        ]
     }
-    ,
-    {
-        path:"/contact",
-        element:<Contact/>
-    }
-    ,
-    {
-        path:"*",
-        element:<Error/>
-    }
+    
 ])
 
 
