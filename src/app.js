@@ -8,7 +8,7 @@ import Contact from ".//components/contact"
 import Error from "./components/error";
 import {RouterProvider , createBrowserRouter} from "react-router-dom"
 import { Outlet } from "react-router-dom"; //helps in managing the routes by having constant header and footer it accepts childrens
-   
+import RestaurantDetail from "./components/restaurantDetail";
 
 
 const AppLayout = function () {
@@ -41,6 +41,11 @@ const appRouter = createBrowserRouter([
             {
                 path:"/contact",
                 element:<Contact/>
+            }
+            ,
+            {
+                path:"/restaurant/:id",
+                element:<RestaurantDetail/>
             }
         ]
     }
