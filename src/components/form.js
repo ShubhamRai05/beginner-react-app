@@ -1,10 +1,27 @@
 import { useFormik } from "formik";
 
+
+initialValues = {
+    firstName:"",
+    lastName:"",
+    password:"",
+    confirmPassword:"",
+    email:""
+}
+
 const LoginForm = () => {
+   const {values , errors , handleChange , handleBlur , handleSubmit} =  useFormik({
+        initialValues:initialValues,
+        onSubmit:(values)=>{
+            console.log(values);
+        }
+    })
+    console.log(values);
+    // console.log(values);
     return (
         <>
             <div className="form-container">
-                <form>
+                <form onSubmit={handleSubmit}>
                     <div className="form-element">
                         {/* firstName */}
                         <label htmlFor="firstName">First Name:</label>
@@ -13,6 +30,9 @@ const LoginForm = () => {
                             name="firstName"
                             id="firstName"
                             placeholder="Name"
+                            onChange={handleChange}
+                            value={values.firstName}
+                            onBlur={handleBlur}
                         />
                     </div>
 
@@ -24,6 +44,10 @@ const LoginForm = () => {
                             name="lastName"
                             id="lastName"
                             placeholder="last Name"
+                            onChange={handleChange}
+                            value={values.lastName}
+                            onBlur={handleBlur}
+
                         />
                     </div>
 
@@ -34,6 +58,9 @@ const LoginForm = () => {
                             name="email"
                             id="email"
                             placeholder="email"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.email}
                         />
                     </div>
 
@@ -45,8 +72,11 @@ const LoginForm = () => {
                             type="password"
                             id="password"
                             name="password"
-                            autocomplete="off"
+                            autoComplete="off"
                             placeholder="Password"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.password}
 
                         />
                     </div>
@@ -58,8 +88,11 @@ const LoginForm = () => {
                             type="password"
                             id="confrimPassword"
                             name="confrimPassword"
-                            autocomplete="off"
+                            autoComplete="off"
                             placeholder="Confirm Password"
+                            onChange={handleChange}
+                            onBlur={handleBlur}
+                            value={values.confirmPassword}
                         />
                     </div>
 
