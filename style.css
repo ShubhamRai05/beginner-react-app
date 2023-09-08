@@ -127,3 +127,17 @@ body
         background-position: 200% 0;
     }
 } */ 
+
+.form-container
+{
+    height: 100vh;
+    background-color: #121212;
+    color: antiquewhite;
+}
+form
+{
+    
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}

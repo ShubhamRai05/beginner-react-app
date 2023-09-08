@@ -30,6 +30,9 @@ const HeaderComponent = function () {
       <Link to="/about">
       <li>About Us</li>
       </Link>
+      <Link to="/form">
+      <li>Login Form</li>
+      </Link>
 
         <Link to="/contact">Contact Us</Link>
         <li>Cart</li>
