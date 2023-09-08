@@ -6,7 +6,7 @@ import FooterComponent from "./components/footer";
 import About from "../src/components/about"
 import Contact from ".//components/contact"
 import Error from "./components/error";
-import {RouterProvider , createBrowserRouter} from "react-router-dom"
+import { RouterProvider, createBrowserRouter } from "react-router-dom"
 import { Outlet } from "react-router-dom"; //helps in managing the routes by having constant header and footer it accepts childrens
 import RestaurantDetail from "./components/restaurantDetail";
 
@@ -25,35 +25,35 @@ const AppLayout = function () {
 
 const appRouter = createBrowserRouter([
     {
-        path:"/" ,
-        element:<AppLayout/>,
-        errorElement:<Error/>,
-        children:[
+        path: "/",
+        element: <AppLayout />,
+        errorElement: <Error />,
+        children: [
             {
-                path:"/",
-                element:<BodyComponent/>
+                path: "/",
+                element: <BodyComponent />
             },
             {
-                path:"/about",
-                element:<About/>
+                path: "/about",
+                element: <About />
             }
             ,
             {
-                path:"/contact",
-                element:<Contact/>
+                path: "/contact",
+                element: <Contact />
             }
             ,
             {
-                path:"/restaurant/:id",
-                element:<RestaurantDetail/>
+                path: "/restaurant/:restaurantID",
+                element: <RestaurantDetail />
             }
         ]
     }
-    
+
 ])
 
 
 
 const rootJS = document.querySelector("#root")
 const root = ReactDOM.createRoot(rootJS)
-root.render(<RouterProvider router={appRouter}/>)
+root.render(<RouterProvider router={appRouter} />)
