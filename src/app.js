@@ -50,7 +50,8 @@ const appRouter = createBrowserRouter([
             },
             {
                 path:"/form",
-                element:<LoginForm/>
+                element:<LoginForm
+            />
             }
         ]
     }
