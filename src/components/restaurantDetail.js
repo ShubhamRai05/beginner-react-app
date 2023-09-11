@@ -9,6 +9,7 @@ const RestaurantDetail = () => {
     const { restaurantID } = useParams()
     const restaurantDetail = useRestaurantDetail(restaurantID)
   
+    // creating hook for checking online status of the user
     return (!restaurantDetail) ? <ShimmerComponent /> : (
         <>
             <h1>{restaurantDetail.name}</h1>
