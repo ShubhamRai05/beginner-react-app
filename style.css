@@ -141,3 +141,14 @@ form
     flex-direction: column;
     gap: 1rem;
 }
+
+.profile
+{
+    border:1px solid black;
+    text-align: center;
+}
+.profileFunction
+{
+    border: 2px solid pink;
+    text-align: center;
+}

@@ -10,6 +10,7 @@ import { RouterProvider, createBrowserRouter, Form } from "react-router-dom"
 import { Outlet } from "react-router-dom"; //helps in managing the routes by having constant header and footer it accepts childrens
 import RestaurantDetail from "./components/restaurantDetail";
 import LoginForm from "./components/form";
+import HumanResource from "./components/ProfileClass";
 
 
 const AppLayout = function () {
@@ -41,7 +42,14 @@ const appRouter = createBrowserRouter([
             ,
             {
                 path: "/contact",
-                element: <Contact />
+                element: <Contact />,
+
+                children: [
+                    {
+                        path: "hr",
+                        element: <HumanResource />
+                    }
+                ]
             }
             ,
             {
@@ -49,9 +57,9 @@ const appRouter = createBrowserRouter([
                 element: <RestaurantDetail />
             },
             {
-                path:"/form",
-                element:<LoginForm
-            />
+                path: "/form",
+                element: <LoginForm
+                />
             }
         ]
     }

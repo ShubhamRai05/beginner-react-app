@@ -1,7 +1,7 @@
 import { restaurantCardData } from "./config";  //because we are using api of swiggy
 import RestaurantCard from "./restroCard";
 import { useState, useEffect } from "react";
-import { filterData } from "./config";
+import { filterData } from "./utils/helper.js";
 import ShimmerComponent from "./shimmer";
 import { Link } from "react-router-dom";
 
@@ -15,33 +15,34 @@ const BodyComponent = function () {
 
 
     useEffect(() => {
-        console.log("i am useEffect`");
         // api call
         getRestaurant()
-    }, [])
+    }, [], ()=>{
+       console.log("kill netork request here");  
+    })
 
 
     // fetching api
     async function getRestaurant() {
-        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1122286&lng=72.8873623&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1122286&lng=72.8873623&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
         const response = await data.json()
-        // console.log(response?.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info)
-        if(!response?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle){
+        if (!response?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle) {
             return <h1>Please refresh the page</h1>
         }
-        let restaurantData = response?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+ 
+        let restaurantData = await response?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         setAllRestaurant(restaurantData)
         setfilteredRestaurant(restaurantData)
 
-        // console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
+        console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
     }
 
     if (!allRestaurants) {
         return <h1>Still rendering</h1>
     }
 
-    const renderinResults = ()=>{
-        if(filteredRestaurant.length ===0){
+    const renderinResults = () => {
+        if (filteredRestaurant.length === 0) {
             return alert("No search Result")
         }
     }
@@ -67,7 +68,7 @@ const BodyComponent = function () {
 
             <div className="restaurant-list">
                 {filteredRestaurant.map((restro) => {
-                    return( <Link to={"/restaurant/" + restro?.info?.id} key={restro?.info?.id}><RestaurantCard {...restro.info} /></Link> )
+                    return (<Link to={"/restaurant/" + restro?.info?.id} key={restro?.info?.id}><RestaurantCard {...restro.info} /></Link>)
                 })}
             </div></>
 
