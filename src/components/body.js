@@ -4,37 +4,44 @@ import { useState, useEffect } from "react";
 import { filterData } from "./utils/helper.js";
 import ShimmerComponent from "./shimmer";
 import { Link } from "react-router-dom";
-
+import useUserStatus from "./hooks/useUserStatus";
 const BodyComponent = function () {
 
     // local variables
     const [allRestaurants, setAllRestaurant] = useState([])
     const [searchText, setSearchText] = useState("")
     let [filteredRestaurant, setfilteredRestaurant] = useState([])
+    const isOnline = useUserStatus()
+    console.log(isOnline);
 
+  
 
 
     useEffect(() => {
         // api call
         getRestaurant()
-    }, [], ()=>{
-       console.log("kill netork request here");  
+    }, [], () => {
+        console.log("kill netork request here");
     })
 
 
     // fetching api
     async function getRestaurant() {
-         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1122286&lng=72.8873623&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+        const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.1122286&lng=72.8873623&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
         const response = await data.json()
         if (!response?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle) {
             return <h1>Please refresh the page</h1>
         }
- 
+
         let restaurantData = await response?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants
         setAllRestaurant(restaurantData)
         setfilteredRestaurant(restaurantData)
 
         console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
+    }
+      // cheecking user Status
+      if (!isOnline) {
+        return <h1>Ooops something went wrong</h1>
     }
 
     if (!allRestaurants) {
