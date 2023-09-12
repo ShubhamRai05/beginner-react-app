@@ -14,7 +14,7 @@ import HumanResource from "./components/ProfileClass";
 import ShimmerComponent from "./components/shimmer";
 // import Offers from "./components/offers";
 
-// lazy loading our few components
+// lazy loading our Offers components
 const Offers = lazy(()=>import("./components/offers"))
 
 const AppLayout = function () {
