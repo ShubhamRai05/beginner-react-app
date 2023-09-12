@@ -39,10 +39,6 @@ const BodyComponent = function () {
 
         console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
     }
-      // cheecking user Status
-      if (!isOnline) {
-        return <h1>Ooops something went wrong</h1>
-    }
 
     if (!allRestaurants) {
         return <h1>Still rendering</h1>
@@ -52,6 +48,11 @@ const BodyComponent = function () {
         if (filteredRestaurant.length === 0) {
             return alert("No search Result")
         }
+    }  
+    
+    // cheecking user Status
+    if (!isOnline) {
+        return <h1>Ooops something went wrong</h1>
     }
 
     console.log("render")
