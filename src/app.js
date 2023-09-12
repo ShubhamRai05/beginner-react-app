@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import HeaderComponent from "./components/header";
 import BodyComponent from "./components/body";
@@ -11,7 +11,11 @@ import { Outlet } from "react-router-dom"; //helps in managing the routes by hav
 import RestaurantDetail from "./components/restaurantDetail";
 import LoginForm from "./components/form";
 import HumanResource from "./components/ProfileClass";
+import ShimmerComponent from "./components/shimmer";
+// import Offers from "./components/offers";
 
+// lazy loading our few components
+const Offers = lazy(()=>import("./components/offers"))
 
 const AppLayout = function () {
     return (
@@ -60,6 +64,10 @@ const appRouter = createBrowserRouter([
                 path: "/form",
                 element: <LoginForm
                 />
+            },
+            {
+                path:"/offers",
+                element:<Suspense fallback={<ShimmerComponent/>}><Offers/></Suspense>
             }
         ]
     }

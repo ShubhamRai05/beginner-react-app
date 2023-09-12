@@ -7,7 +7,7 @@ const Title = () => {
 
   return (
     <>
-      <img src={logo} className="logo"/>
+      <img src={logo} className="logo" />
     </>
 
   )
@@ -24,15 +24,18 @@ const HeaderComponent = function () {
     <div className="header">
       <Title />
       <ul className="nav-list">
-      <Link to="/">
-      <li>Home</li>
-      </Link>
-      <Link to="/about">
-      <li>About Us</li>
-      </Link>
-      <Link to="/form">
-      <li>Login Form</li>
-      </Link>
+        <Link to="/">
+          <li>Home</li>
+        </Link>
+        <Link to="/about">
+          <li>About Us</li>
+        </Link>
+        <Link to="/form">
+          <li>Login Form</li>
+        </Link>
+        <Link to="/offers">
+          <li>Offers</li>
+        </Link>
 
         <Link to="/contact">Contact Us</Link>
         <li>Cart</li>
