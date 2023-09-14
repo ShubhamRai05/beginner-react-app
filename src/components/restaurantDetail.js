@@ -17,6 +17,7 @@ const RestaurantDetail = () => {
             <div className="text-center absolute top-48 left-0 right-0 bottom-0">
                 <h1 className="font-bold text-3xl">{restaurantDetail.name}</h1>
                 <h2 className="text-3xl ">{restaurantDetail.costForTwoMessage}</h2>
+                <h3 className=" text-2xl ">{restaurantDetail.areaName}</h3>
             
       
                 
