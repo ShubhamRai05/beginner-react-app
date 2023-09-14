@@ -18,12 +18,12 @@ const LoginForm = () => {
         initialValues: initialValues,
         validationSchema: signUpSchema,
         onSubmit: (values, action) => {
-            console.log(values)
+            // console.log(values)
             action.resetForm()
             navigate("/")
         },
     })
-    console.log(errors);
+    // console.log(errors);
     return (
         <>
             <div className="h-95vh w-screen  overflow-hidden  bg-slate-600 text-center">
@@ -109,7 +109,7 @@ const LoginForm = () => {
                             value={values.confirmPassword}
                             className="placeholder:italic placeholder:text-slate-400  bg-white w-3/4 border border-slate-300 rounded-md py-2 pl-9 pr-3  ml-5 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
                         />
-                        {(errors.confirmPassword && touched.confirmPassword ? <h2>{errors.confirmPassword}</h2> : null)}
+                        {(errors.confirmPassword && touched.confirmPassword ? <h2 className="text-red-500 font-semibold text-lg">{errors.confirmPassword}</h2> : null)}
 
                     </div>
                      <div className="w-full mb-4">

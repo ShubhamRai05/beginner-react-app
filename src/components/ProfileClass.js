@@ -11,7 +11,7 @@ class HumanResource extends React.Component {
             githubRepo: 23,
             count:1
         }
-        console.log("child contructor", this.props.name)
+        // console.log("child contructor", this.props.name)
     }
 
     async componentDidMount() {
@@ -26,14 +26,14 @@ class HumanResource extends React.Component {
     }
 
     componentWillUnmount() {
-        console.log("dont worry i have unmounted that guy");
+        // console.log("dont worry i have unmounted that guy");
         clearInterval(this.timer)
     }
     componentDidUpdate(){
-        console.log(" stop updating me");
+        // console.log(" stop updating me");
     }
     render() {
-        console.log("child render", this.props.name);
+        // console.log("child render", this.props.name);
         const { login: name, imageURL, githubRepo , count} = this.state
         return (<>
             <div className="profile">

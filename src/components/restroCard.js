@@ -2,7 +2,8 @@ import { CDN_URL } from "./config";
 
 const RestaurantCard = function (props) {
 
-    const { name,     cuisines, locality, cloudinaryImageId, avgRating, costForTwo } = props
+    const { name,     cuisines, locality, cloudinaryImageId, avgRating, costForTwo  , powered} = props
+    // console.log(props);
     return ( 
         <div className="w-96  h-full border-solid border-2 border-purple-950 text-center overflow-hidden">     
             <img src={CDN_URL  + cloudinaryImageId} className="h-3/4 self-center w-full object-cover" />
@@ -12,6 +13,7 @@ const RestaurantCard = function (props) {
             <h4>{locality}</h4>
             <h4 className="text-orange-500">{avgRating} stars</h4>
             <h4 className="font-mono">{costForTwo}</h4>   
+            <h4 className="font-mono"><span className="font-mono font-bold ">Powered BY </span>:{powered}</h4>   
             </div>  
         </div>             
     )    

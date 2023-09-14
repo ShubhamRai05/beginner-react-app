@@ -23,18 +23,18 @@ class Contact extends Component {
     constructor(props) {
         super(props)
 
-        console.log("Parent - Contructor");
+        // console.log("Parent - Contructor");
     }
 
 
      componentDidMount() {
-        console.log("Parent - componentDidMount");
+        // console.log("Parent - componentDidMount");
      
 
     }
 
     render() {
-        console.log("Parent - Render");
+        // console.log("Parent - Render");
         return (
             <>
                 <h1>Contact us Page</h1>

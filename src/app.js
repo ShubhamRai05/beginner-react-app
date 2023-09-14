@@ -15,7 +15,7 @@ import ShimmerComponent from "./components/shimmer";
 // import Offers from "./components/offers";
 
 // lazy loading our Offers components
-const Offers = lazy(()=>import("./components/offers"))
+const Offers = lazy(() => import("./components/offers"))
 
 const AppLayout = function () {
     return (
@@ -37,7 +37,10 @@ const appRouter = createBrowserRouter([
         children: [
             {
                 path: "/",
-                element: <BodyComponent />
+                element: <BodyComponent copyright={{
+                    poweredBy: "Swiggy"
+                }
+                } />
             },
             {
                 path: "/about",
@@ -66,8 +69,8 @@ const appRouter = createBrowserRouter([
                 />
             },
             {
-                path:"/offers",
-                element:<Suspense fallback={<ShimmerComponent/>}><Offers/></Suspense>
+                path: "/offers",
+                element: <Suspense fallback={<ShimmerComponent />}><Offers /></Suspense>
             }
         ]
     }
