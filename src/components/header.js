@@ -7,7 +7,7 @@ const Title = () => {
 
   return (
     <>
-      <img src={logo} className="logo" />
+      <img src={logo} className="w-36 m-5" />
     </>
 
   )
@@ -21,28 +21,30 @@ const HeaderComponent = function () {
 
 
   return (
-    <div className="header">
+    <div className="flex justify-between bg-slate-200 overflow-hidden h-36 ">
       <Title />
-      <ul className="nav-list">
+      <ul className="flex justify-between gap-6 m-5 self-center">
         <Link to="/">
-          <li>Home</li>
+          <li className="text-3xl text-slate-500 hover:first-letter:text-slate-700  hover:duration-500">Home</li>
         </Link>
         <Link to="/about">
-          <li>About Us</li>
+          <li className="text-3xl  text-slate-500 hover:first-letter:text-slate-700  hover:duration-500">About Us</li>
         </Link>
         <Link to="/form">
-          <li>Login Form</li>
+          <li className="text-3xl  text-slate-500 hover:first-letter:text-slate-700  hover:duration-500">Login Form</li>
         </Link>
         <Link to="/offers">
-          <li>Offers</li>
+          <li className="text-3xl  text-slate-500 hover:first-letter:text-slate-700  hover:duration-500">Offers</li>
         </Link>
 
-        <Link to="/contact">Contact Us</Link>
-        <li>Cart</li>
+        <Link to="/contact">
+          <li className="text-3xl  text-slate-500 hover:first-letter:text-slate-700  hover:duration-500">Contact Us</li>
+        </Link>
+        <li className="text-3xl  text-slate-500 hover:first-letter:text-slate-700  hover:duration-500" >Cart</li>
       </ul>
-      {authentication ? <button onClick={() => {
+      {authentication ? <button className="bg-slate-600 p-3 rounded-xl text-slate-300   self-center  mr-10" onClick={() => {
         setAuthentication(false)
-      }}>Login</button> : <button onClick={() => {
+      }}>Login</button> : <button className="bg-slate-600 p-3 rounded-xl text-slate-300  self-center  mr-10" onClick={() => {
         setAuthentication(true)
       }}>Logout</button>}
     </div>

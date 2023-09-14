@@ -26,11 +26,12 @@ const LoginForm = () => {
     console.log(errors);
     return (
         <>
-            <div className="form-container">
-                <form onSubmit={handleSubmit}>
-                    <div className="form-element">
+            <div className="h-95vh w-screen  overflow-hidden  bg-slate-600 text-center">
+                <form onSubmit={handleSubmit} className="flex flex-wrap mt-10 ">
+                    <div className="form-element w-full ">
                         {/* firstName */}
-                        <label htmlFor="firstName">First Name:</label>
+                        <div className="mb-5 text-2xl font-bold" > <label htmlFor="firstName" >First Name:</label></div>
+
                         <input type="firstName"
                             autoComplete="off"
                             name="firstName"
@@ -39,12 +40,14 @@ const LoginForm = () => {
                             onChange={handleChange}
                             value={values.firstName}
                             onBlur={handleBlur}
+                            className="placeholder:italic placeholder:text-slate-400  bg-white w-3/4 border border-slate-300 rounded-md py-2 pl-9 pr-3  ml-5 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm "
                         />
+                        {(errors.firstName && touched.firstName ? <h2 className="text-red-500 font-semibold text-lg" >{errors.firstName}</h2> : null)}
+
                     </div>
-                    {(errors.firstName && touched.firstName ? <h2>{errors.firstName}</h2> : null)}
-                    <div className="form-element">
+                    <div className="form-element w-full mt-10">
                         {/* LastName */}
-                        <label htmlFor="lastName">Last Name:</label>
+                        <div className="mb-5 text-2xl font-bold"><label htmlFor="lastName">Last Name:</label></div>
                         <input type="lastName"
                             autoComplete="off"
                             name="lastName"
@@ -53,13 +56,15 @@ const LoginForm = () => {
                             onChange={handleChange}
                             value={values.lastName}
                             onBlur={handleBlur}
+                            className="placeholder:italic placeholder:text-slate-400  bg-white w-3/4 border border-slate-300 rounded-md py-2 pl-9 pr-3  ml-5 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm "
 
                         />
+                        {(errors.lastName && touched.lastName) ? <h2 className="text-red-500 font-semibold text-lg">{errors.lastName}</h2> : null}
+
                     </div>
-                    {(errors.lastName && touched.lastName) ? <h2>{errors.lastName}</h2> : null}
-                    <div className="form-element">
+                    <div className="form-element w-full mt-10">
                         {/* email */}
-                        <label htmlFor="email">Email:</label>
+                        <div className="mb-5 text-2xl font-bold"><label htmlFor="email">Email:</label></div>
                         <input type="email"
                             name="email"
                             id="email"
@@ -67,13 +72,15 @@ const LoginForm = () => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.email}
+                            className="placeholder:italic placeholder:text-slate-400  bg-white w-3/4 border border-slate-300 rounded-md py-2 pl-9 pr-3  ml-5 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm "
                         />
-                    </div>
-                    {(errors.email && touched.email ? <h2>{errors.email}</h2> : null)}
+                        {(errors.email && touched.email ? <h2 className="text-red-500 font-semibold text-lg">{errors.email}</h2> : null)}
 
-                    <div className="form-element">
+                    </div>
+
+                    <div className="form-element w-full mt-10">
                         {/* password */}
-                        <label htmlFor="password">Password:</label>
+                        <div className="mb-5 text-2xl font-bold"><label htmlFor="password">Password:</label></div>
                         <input
                             type="password"
                             id="password"
@@ -83,13 +90,14 @@ const LoginForm = () => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.password}
-
+                            className="placeholder:italic placeholder:text-slate-400  bg-white w-3/4 border border-slate-300 rounded-md py-2 pl-9 pr-3  ml-5 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm "
                         />
-                    </div>
-                    {(errors.password && touched.email ? <h2>{errors.password}</h2> : null)}
+                        {(errors.password && touched.email ? <h2 className="text-red-500 font-semibold text-lg">{errors.password}</h2> : null)}
 
-                    <div className="form-element">    {/* confirm password */}
-                        <label htmlFor="confirmPassword">Confirm Password:</label>
+                    </div>
+
+                    <div className="w-full mt-10">    {/* confirm password */}
+                        <div className="mb-5 text-2xl font-bold"><label htmlFor="confirmPassword">Confirm Password:</label></div>
                         <input
                             type="password"
                             id="confirmPassword"
@@ -99,12 +107,14 @@ const LoginForm = () => {
                             onChange={handleChange}
                             onBlur={handleBlur}
                             value={values.confirmPassword}
+                            className="placeholder:italic placeholder:text-slate-400  bg-white w-3/4 border border-slate-300 rounded-md py-2 pl-9 pr-3  ml-5 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-sm"
                         />
+                        {(errors.confirmPassword && touched.confirmPassword ? <h2>{errors.confirmPassword}</h2> : null)}
+
                     </div>
-                    {(errors.confirmPassword && touched.confirmPassword ? <h2>{errors.confirmPassword}</h2> : null)}
-                    <div className="form-element">
-                        {/* submit button */}
-                        <button type="submit">Registration</button>
+                     <div className="w-full mb-4">
+                        <button type="submit" className="p-3 rounded-xl 
+                          bg-slate-400 text-slate-50 mr-10 mt-5" >Registration</button>
                     </div>
                 </form>
             </div>
