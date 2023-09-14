@@ -18,7 +18,8 @@ const RestaurantDetail = () => {
                 <h1 className="font-bold text-3xl">{restaurantDetail.name}</h1>
                 <h2 className="text-3xl ">{restaurantDetail.costForTwoMessage}</h2>
                 <h3 className=" text-2xl ">{restaurantDetail.areaName}</h3>
-            
+                <h3 className=" font-extrabold text-gray-950 text-4xl">{restaurantDetail.city}</h3>
+
       
                 
             </div>
