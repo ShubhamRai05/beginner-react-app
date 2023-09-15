@@ -1,5 +1,7 @@
 import * as Yup from "yup"
 
+// yup is used for importing errors with respect to formik
+
 export const signUpSchema = Yup.object({
     firstName:Yup.string().min(4).max(15).required("Please enter your name"),
     lastName: Yup.string().min(2).max(15).required("Please write your lastname"),
