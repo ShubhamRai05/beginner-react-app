@@ -4,7 +4,7 @@ const Section = ({ description, title }) => {
     const [isVisible, setIsVisible] = useState(true)
     return (
         <>
-            <h1>{title}</h1>
+            <h1 className="text-3xl font-bold">{title}</h1>
             {
                 isVisible ? (<button className="border-black bg-slate-400 text-slate-900 m-3 rounded-md p-2" onClick={() => {
                     setIsVisible(false)
