@@ -6,11 +6,13 @@ const Section = ({ description, title }) => {
         <>
             <h1>{title}</h1>
             {
-                isVisible ? (<button className="border-black bg-slate-400 text-slate-900 m-1 rounded-md p-2" onClick={()=>{
+                isVisible ? (<button className="border-black bg-slate-400 text-slate-900 m-3 rounded-md p-2" onClick={() => {
                     setIsVisible(false)
-                }}>Hide</button>) : (<button className="border-black bg-slate-400 text-slate-900 rounded-md p-2" onClick={()=>{
-                    setIsVisible(true)
-                 }}>Show</button>)
+                }}>Hide</button>)
+                    :
+                    (<button className="border-black bg-slate-400 text-slate-900 rounded-md m-3 p-2" onClick={() => {
+                        setIsVisible(true)
+                    }}>Show</button>)
 
 
             }
