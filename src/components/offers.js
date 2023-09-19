@@ -1,29 +1,25 @@
 import { useState } from "react"
 
-
 const Section = ({ description, title }) => {
-    const [isVisible, setIsVisible] = useState(false)
+    const [isVisible, setIsVisible] = useState(true)
     return (
         <>
-            <h1 className="text-2xl font-bold">{title}</h1>
-
-           { isVisible ? (<button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2 m-6" onClick={() => {
-                setIsVisible(false)
-
-            }}>Hide</button>) :
-
-           (<button className="px-4 py-1 text-sm text-purple-600 font-semibold rounded-full border border-purple-200 hover:text-white hover:bg-purple-600 hover:border-transparent focus:outline-none focus:ring-2 focus:ring-purple-600 focus:ring-offset-2"
-                onClick={() => {
+            <h1>{title}</h1>
+            {
+                isVisible ? (<button className="border-black bg-slate-400 text-slate-900 m-1 rounded-md" onClick={()=>{
+                    setIsVisible(false)
+                }}>Hide</button>) : (<button className="border-black bg-slate-400 text-slate-900 rounded-md" onClick={()=>{
                     setIsVisible(true)
-                }}>Show</button>)
-           }
+                 }}>Show</button>)
 
-           {isVisible && <p>{description}</p>}
+
+            }
+
+            {isVisible && <p>{description}</p>}
 
         </>
     )
 }
-
 
 const Offers = () => {
     return (

@@ -43,7 +43,7 @@ const {poweredBy} = {props}.props.copyright
         setAllRestaurant(restaurantData)
         setfilteredRestaurant(restaurantData)
 
-        console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
+        // console.log(response.data.cards[5].card.card.gridElements.infoWithStyle.restaurants)
     }
 
     if (!allRestaurants) {
