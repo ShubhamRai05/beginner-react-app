@@ -17,6 +17,7 @@ const Title = () => {
 
 
 const HeaderComponent = function () {
+
   const user = useContext(UserContext)
   console.log(user);
 
