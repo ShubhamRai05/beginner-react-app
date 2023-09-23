@@ -1,4 +1,4 @@
-import React, { lazy, Suspense } from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import HeaderComponent from "./components/header";
 import BodyComponent from "./components/body";
@@ -18,6 +18,10 @@ import ShimmerComponent from "./components/shimmer";
 const Offers = lazy(() => import("./components/offers"))
 
 const AppLayout = function () {
+    const [user , setUser ] = useState({
+        name:"dummy User",
+        owner:"dummy name"
+    })
     return (
         <>
             <HeaderComponent />

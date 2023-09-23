@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState , useContext} from "react"
 import logo from "./assets/img/logo.jpg"
 import { Link } from "react-router-dom"
+import UserContext from "./context/userContext"
 const Title = () => {
   // const [title, setTitle] = useState("FoodMania")
 
@@ -16,6 +17,8 @@ const Title = () => {
 
 
 const HeaderComponent = function () {
+  const user = useContext(UserContext)
+  console.log(user);
 
   const [authentication, setAuthentication] = useState(true)
 
@@ -42,6 +45,9 @@ const HeaderComponent = function () {
         </Link>
         <li className="text-3xl  text-slate-500 hover:first-letter:text-slate-700  hover:duration-500" >Cart</li>
       </ul>
+      <h4>{user.owner}</h4>
+      <h4>{user.name}</h4>
+      
       {authentication ? <button className="bg-slate-600 p-3 rounded-xl text-slate-300   self-center  mr-10" onClick={() => {
         setAuthentication(false)
       }}>Login</button> : <button className="bg-slate-600 p-3 rounded-xl text-slate-300  self-center  mr-10" onClick={() => {
