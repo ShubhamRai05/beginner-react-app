@@ -12,21 +12,26 @@ import RestaurantDetail from "./components/restaurantDetail";
 import LoginForm from "./components/form";
 import HumanResource from "./components/ProfileClass";
 import ShimmerComponent from "./components/shimmer";
+import UserContext from "./components/context/userContext";
+
 // import Offers from "./components/offers";
 
 // lazy loading our Offers components
 const Offers = lazy(() => import("./components/offers"))
 
 const AppLayout = function () {
-    const [user , setUser ] = useState({
-        name:"dummy User",
-        owner:"dummy name"
+    const [user, setUser] = useState({
+        name: "dummy User",
+        owner: "dummy name"
     })
     return (
         <>
-            <HeaderComponent />
-            <Outlet />
-            <FooterComponent />
+            <UserContext.Provider value={user}>
+                <HeaderComponent />
+                <Outlet />
+                <FooterComponent />
+            </UserContext.Provider>
+
         </>
 
 
