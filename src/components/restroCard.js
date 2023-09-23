@@ -1,13 +1,16 @@
 import { CDN_URL } from "./config";
 import { useContext } from "react";
 import UserContext from "./context/userContext";
-const RestaurantCard = function (props) {
 
+
+
+const RestaurantCard = function (props) {
     const { name,     cuisines, locality, cloudinaryImageId, avgRating, costForTwo  , powered} = props
-    const user = useContext(UserContext)
+    const {user} = useContext(UserContext)
+    console.log(user);
     // console.log(props);
     return ( 
-        <div className="w-96  h-[500px] border-solid border-2 border-purple-950 text-center ">     
+        <div className="w-96  h-[500px] border-solid border-2 border-purple-950 text-center overflow-hidden ">     
             <img src={CDN_URL  + cloudinaryImageId} className="h-3/5 self-center w-full object-cover" />
             <div className="mt-2">
             <h2 className="font-bold">{name}</h2>        
