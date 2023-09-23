@@ -1,10 +1,11 @@
 import { restaurantCardData } from "./config";  //because we are using api of swiggy
 import RestaurantCard from "./restroCard";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { filterData } from "./utils/helper.js";
 import ShimmerComponent from "./shimmer";
 import { Link } from "react-router-dom";
 import useUserStatus from "./hooks/useUserStatus";
+import UserContext from "./context/userContext";
 
 
 
@@ -18,7 +19,7 @@ const {poweredBy} = {props}.props.copyright
     const [searchText, setSearchText] = useState("")
     let [filteredRestaurant, setfilteredRestaurant] = useState([])
     const isOnline = useUserStatus()
-    // console.log(isOnline);
+    const {user , setUser} = useContext(UserContext)
 
   
 
@@ -80,6 +81,10 @@ const {poweredBy} = {props}.props.copyright
 
 
             }}>Search</button>
+
+            <input type="text" onChange={e=>{
+
+            }}/>
             </div>
             <div className="flex flex-wrap gap-7 w-full mt-12 justify-evenly ">
                 {filteredRestaurant.map((restro) => {

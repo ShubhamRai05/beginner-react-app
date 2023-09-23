@@ -19,7 +19,7 @@ const Title = () => {
 const HeaderComponent = function () {
 
   const user = useContext(UserContext)
-  console.log(user);
+  // console.log(user);
 
   const [authentication, setAuthentication] = useState(true)
 
