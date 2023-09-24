@@ -46,7 +46,7 @@ const HeaderComponent = function () {
         </Link>
         <li className="text-3xl  text-slate-500 hover:first-letter:text-slate-700  hover:duration-500" >Cart</li>
       </ul>
-      <h4>{user.owner}</h4>
+      <h4>{user.email}</h4>
       <h4>{user.name}</h4>
       
       {authentication ? <button className="bg-slate-600 p-3 rounded-xl text-slate-300   self-center  mr-10" onClick={() => {

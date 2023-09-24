@@ -84,11 +84,19 @@ const BodyComponent = function (props) {
 
                 <input type="text" onChange={e => {
                 setUser({
+                    ...user,
                     name:e.target.value,
-                    email:"hello@gmail.com"
                 })
 
                 }}  value={user.name}/>
+
+                <input type="text" onChange={e => {
+                setUser({
+                    ...user,
+                    email:e.target.value,
+                })
+
+                }}  value={user.email}/>
             </div>
             <div className="flex flex-wrap gap-7 w-full mt-12 justify-evenly ">
                 {filteredRestaurant.map((restro) => {

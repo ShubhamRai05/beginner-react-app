@@ -22,7 +22,7 @@ const Offers = lazy(() => import("./components/offers"))
 const AppLayout = function () {
     const [user, setUser] = useState({
         name: "dummy User",
-        owner: "dummy name"
+        email: "dummy@gmail.com"
     })
     return (
         <>

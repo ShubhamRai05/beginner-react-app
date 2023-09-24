@@ -19,7 +19,7 @@ const RestaurantCard = function (props) {
             <h4 className="text-orange-500">{avgRating} stars</h4>
             <h4 className="font-mono">{costForTwo}</h4>   
             <h4 className="font-mono"><span className="font-mono font-bold ">Powered BY </span>:{powered}</h4>   
-            <h4>{user.owner } <span className="font-semibold text-2xl">{user.name}</span> </h4>
+            <h4>{user.email } <span className="font-semibold text-2xl">{user.name}</span> </h4>
 
             </div>  
         </div>             
